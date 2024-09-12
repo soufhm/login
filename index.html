@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول</title>
+    <title>إنشاء حساب</title>
     <style>
         body {
             font-family: sans-serif;
@@ -13,24 +13,24 @@
             justify-content: center;
             min-height: 100vh;
             background-color: #f4f4f4;
-            direction: rtl; 
+            direction: rtl;
         }
 
         .container {
             background-color: #fff;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-            width: 500px; 
-            max-width: 90%; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            max-width: 90%;
         }
 
         header {
             display: flex;
             align-items: center;
-            justify-content: space-between; 
+            justify-content: space-between;
             margin-bottom: 20px;
-            direction: ltr; 
+            direction: ltr;
         }
 
         img.logo {
@@ -55,27 +55,25 @@
         section {
             width: 90%;
             height: 50px;
-            background-color: #EFEFEF; 
+            background-color: #EFEFEF;
             border-radius: 10px;
             padding: 20px;
             display: flex;
             align-items: center;
-            justify-content: center; 
-            margin-bottom: 20px; 
-        
+            justify-content: center;
+            margin-bottom: 20px;
         }
 
-        .buttons-container { 
+        .buttons-container {
             display: flex;
-            justify-content: space-around; 
-            width: 100%; 
-            padding-right: 20px;
-            padding-left: 20px;
+            justify-content: space-between;
+            width: 100%;
+            padding-right: 50px;
+            padding-left: 50px;
         }
 
         button {
-            padding: 8px 15px; 
-            font-size: 14px; 
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
             background-color: #924FF3;
@@ -83,18 +81,18 @@
             cursor: pointer;
         }
 
-        #create-account-btn { 
-            background-color: #EFEFEF; 
-            color: #333; 
-            border: 1px solid #ccc; 
+        #create-account-btn {
+            background-color: #EFEFEF;
+            color: #333;
+            border: 1px solid #ccc;
         }
-
 
         form {
-            width: 100%; 
-            text-align: right; 
+            width: 100%;
+            text-align: right;
         }
 
+        input[type="text"],
         input[type="email"],
         input[type="password"] {
             width: 90%;
@@ -103,88 +101,193 @@
             box-sizing: border-box;
             border: 1px solid #ccc;
             border-radius: 5px;
-            margin-right: 20px; 
-            direction: ltr; 
-            text-align: right; 
+            margin-right: 20px;
+            direction: ltr;
+            text-align: right;
         }
 
         .forgot-password {
-            text-align: left; 
+            text-align: left;
             margin-bottom: 10px;
         }
-        button[type="submit"]{
-          width: 90%;
-          padding: 12px;
-          margin-right: 20px; 
-        }
-        p {
-          width: 90%;
-          margin-right: 20px; 
+
+        button[type="submit"] {
+            width: 90%;
+            padding: 12px;
+            margin-right: 20px;
+            margin-bottom: 15px; 
         }
 
-        label { 
-            display: block; 
-            margin-bottom: 5px; 
-            margin-right: 20px; 
+        p {
+            width: 90%;
+            margin-right: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            margin-right: 20px;
             font-weight: bold;
         }
 
-        input::-webkit-input-placeholder { 
-          text-align: right;
-        }
-        input::-moz-placeholder { 
-          text-align: right;
-        }
-        input:-ms-input-placeholder { 
-          text-align: right;
-        }
-        input:-moz-placeholder { 
-          text-align: right;
+        .info-text {
+            color: #918E8E;
+            text-align: right;
+            margin-bottom: 10px;
+            margin-right: 20px;
         }
 
-        @media (max-width: 768px) { 
-            .container {
-                width: 90%; 
-            }
+        input::-webkit-input-placeholder {
+            text-align: right;
+        }
+        input::-moz-placeholder {
+            text-align: right;
+        }
+        input:-ms-input-placeholder {
+            text-align: right;
+        }
+        input:-moz-placeholder {
+            text-align: right;
+        }
 
-            .buttons-container {
-                flex-direction: column; 
-                align-items: center; 
-            }
+        h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
 
-            #login-btn,
-            #create-account-btn {
-                width: 80%; 
-                margin-bottom: 10px; 
-            }
+        .easy-message {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .domain-input {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            position: relative; 
+            margin-left: 30px;
+            
+        }
+
+        .domain-input input {
+            flex-grow: 1; 
+            margin-right: 5px;
+        }
+
+        .domain-input .domain-part {
+            font-size: 14px;
+            color: #545252;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #EFEFEF;
+            text-align: center; 
+        }
+        .domain-part {
+            height: 16px;
+            margin-right: 20px;
+            
+        }
+        #domain {
+            width: 20%;
+            border-radius: 5px 0px 0px 5px; /* top-right, bottom-right, bottom-left, top-left */
+          }
+
+        .domain-input .domain-part {
+            margin-left: auto; /* لتحديد الهامش الأيسر تلقائياً */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 90%;
+            padding: 12px;
+            margin-right: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group select {
+            width: 90%;
+            padding: 12px;
+            margin-right: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .agreement-text {
+            text-align: center;
+            font-size: 12px;
+            color: #555;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="container"> 
+    <div class="container">
         <header>
             <button class="translate-btn">
                 <img src="united-kingdom.png" alt="English">
             </button>
-            <img src="classa.png" alt="Logo" class="logo"> 
+            <img src="classa.png" alt="Logo" class="logo">
         </header>
 
         <section>
             <div class="buttons-container">
-                <button id="login-btn">تسجيل الدخول</button>
+                <button id="login-btn" onclick="window.location.href='login.html'">تسجيل الدخول</button> 
                 <button id="create-account-btn">أنشئ حسابك مجانًا</button>
             </div>
         </section>
 
         <form>
-            <label for="email">البريد الإلكتروني:</label>
-            <input type="email" id="email" placeholder=" ادخل البريد الإلكتروني" required>
+            <div class="form-group">
+                <label for="domain">اسم النطاق:</label>
+                <div class="domain-input">
+                    <span class="domain-part">classa.app.</span>
+                    <input type="text" id="domain" placeholder="اسم منصتك" required>
+                </div>
+            </div>
 
-            <label for="password">كلمة المرور:</label>
-            <input type="password" id="password" placeholder=" ادخل كلمة المرور" required>
+            <div class="form-group">
+                <label for="email">البريد الإلكتروني:</label>
+                <input type="email" id="email" placeholder=" ادخل البريد الإلكتروني" required>
+            </div>
 
-            <button type="submit">تسجيل الدخول</button>
-            <p class="forgot-password"><a href="#">هل نسيت كلمة المرور؟</a></p>
+            <div class="form-group">
+                <label for="sector">الجهة:</label>
+                <select id="sector" required>
+                    <option value="trainer">مدرب</option>
+                    <option value="school">مدرسة</option>
+                    <option value="company">شركة</option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label for="password">كلمة المرور:</label>
+                <input type="password" id="password" placeholder=" ادخل كلمة المرور" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">تأكيد كلمة المرور:</label>
+                <input type="password" id="confirm-password" placeholder=" تأكيد كلمة المرور" required>
+            </div>
+
+
+            <button type="submit">أنشئ حسابك مجانًا</button>
+
+            <p class="agreement-text">بالضغط على زر “أنشئ حسابك مجانًا” أنت توافق على الشروط والأحكام في Classa</p>
         </form>
     </div>
 
@@ -201,4 +304,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
