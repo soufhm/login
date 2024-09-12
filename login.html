@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            direction: rtl; 
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+            width: 500px; 
+            max-width: 90%; 
+
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            margin-bottom: 20px;
+            direction: ltr; 
+        }
+
+        img.logo {
+            width: 144px;
+            height: 144px;
+        }
+
+        .translate-btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #eee;
+            cursor: pointer;
+        }
+
+        .translate-btn img {
+            width: 22px;
+            height: 22px;
+            margin-right: 5px;
+        }
+
+        section {
+            width: 90%;
+            height: 50px;
+            background-color: #EFEFEF; 
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            margin-bottom: 20px; 
+        
+        }
+
+        .buttons-container { 
+            display: flex;
+            justify-content: space-between; 
+            width: 100%; 
+            padding-right: 50px;
+            padding-left: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #924FF3;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #create-account-btn { 
+            background-color: #EFEFEF; 
+            color: #333; 
+            border: 1px solid #ccc; 
+        }
+
+
+        form {
+            width: 100%; 
+            text-align: right; 
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 20px; 
+            direction: ltr; 
+            text-align: right; /*  لتغيير محاذاة النصوص في حقل الإدخال */
+        }
+
+        .forgot-password {
+            text-align: left; 
+            margin-bottom: 10px;
+        }
+        button[type="submit"]{
+          width: 90%;
+          padding: 12px;
+          margin-right: 20px; 
+        }
+        p {
+          width: 90%;
+          margin-right: 20px; 
+        }
+
+        label { 
+            display: block; 
+            margin-bottom: 5px; 
+            margin-right: 20px; 
+            font-weight: bold;
+        }
+
+        input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+          text-align: right;
+        }
+        input::-moz-placeholder { /* Firefox 19+ */
+          text-align: right;
+        }
+        input:-ms-input-placeholder { /* IE 10+ */
+          text-align: right;
+        }
+        input:-moz-placeholder { /* Firefox 18- */
+          text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <header>
+            <button class="translate-btn">
+                <img src="united-kingdom.png" alt="English">
+            </button>
+            <img src="classa.png" alt="Logo" class="logo"> 
+        </header>
+
+        <section>
+            <div class="buttons-container">
+                <button id="login-btn">تسجيل الدخول</button>
+                <button id="create-account-btn">أنشئ حسابك مجانًا</button>
+            </div>
+        </section>
+
+        <form>
+            <label for="email">البريد الإلكتروني:</label>
+            <input type="email" id="email" placeholder=" ادخل البريد الإلكتروني" required>
+
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" placeholder=" ادخل كلمة المرور" required>
+
+            <button type="submit">تسجيل الدخول</button>
+            <p class="forgot-password"><a href="#">هل نسيت كلمة المرور؟</a></p>
+        </form>
+    </div>
+
+    <script>
+        const createAccountBtn = document.getElementById('create-account-btn');
+        const loginBtn = document.getElementById('login-btn');
+
+        createAccountBtn.addEventListener('click', () => {
+            console.log("إنشاء حساب"); 
+        });
+
+        loginBtn.addEventListener('click', () => {
+            console.log("تسجيل الدخول"); 
+        });
+    </script>
+</body>
+</html>
