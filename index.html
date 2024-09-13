@@ -3,32 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إنشاء حساب</title>
+    <title>صفحة جديدة</title>
     <style>
         body {
             font-family: sans-serif;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             min-height: 100vh;
             background-color: #f4f4f4;
             direction: rtl;
         }
 
         .container {
-            background-color: #fff;
-            padding: 30px;
+            display: flex;
+            width: 90%;
+            max-width: 1200px; 
+            padding: 20px;
+            background-color: #fff; 
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 500px;
-            max-width: 90%;
+        }
+
+        .right-container {
+            width: 40%; /* عرض الحاوية اليمنى 40% */
+            padding: 20px;
+            float: right; /* استخدام خاصية العومان */
+        }
+
+        .left-container {
+            width: 60%; /* عرض الحاوية اليسرى 60% */
+            padding: 20px;
         }
 
         header {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-end; 
             margin-bottom: 20px;
             direction: ltr;
         }
@@ -38,63 +49,157 @@
             height: 144px;
         }
 
-        .translate-btn {
-            padding: 8px 12px;
-            border: none;
-            border-radius: 5px;
-            background-color: #eee;
-            cursor: pointer;
-        }
-
-        .translate-btn img {
-            width: 22px;
-            height: 22px;
-            margin-right: 5px;
-        }
-
-        section {
-            width: 90%;
-            height: 50px;
-            background-color: #EFEFEF;
-            border-radius: 10px;
-            padding: 20px;
+        .step {
             display: flex;
             align-items: center;
-            justify-content: center;
             margin-bottom: 20px;
         }
 
-        .buttons-container {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            padding-right: 50px;
-            padding-left: 50px;
+        .step-icon {
+            width: 65px;
+            height: 65px;
+            margin-right: 10px;
         }
 
-        button {
-            padding: 10px 20px;
-            border: none;
+        .step-title {
+            font-size: 18px;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .step-description {
+            font-size: 14px;
+            color: #918E8E;
+        }
+
+        .vertical-line {
+            position: relative;
+            width: 4px;
+            height: 95px;
+            background-color: #FFC446;
+            margin-left: 75px; 
+            margin-top: -55px; 
+            margin-right: 41px;
+            margin-bottom: -36px;
+        }
+
+        .middle-image {
+            width: 281px;
+            height: 299px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+
+        .note {
+            background-color: #F0F0F0;
+            padding: 5px;
             border-radius: 5px;
-            background-color: #924FF3;
-            color: #fff;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .note-icon {
+            width: 36px;
+            height: 36px;
+            margin-right: 10px;
+        }
+
+        .note-text {
+            color: #918E8E;
+        }
+
+
+        .left-container {
+            width: 60%;
+            padding: 20px;
+        }
+
+        .left-section {
+            margin-bottom: 20px; /* إزالة flex من left-section */
+        }
+
+        .left-section-icon {
+            width: 52px;
+            height: 52px;
+            margin-right: 10px;
+        }
+
+        .left-section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .left-section-description {
+            font-size: 14px;
+            color: #918E8E;
+        }
+
+        .section-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .section-group-label {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .upload-image-container {
+            width: 148px;
+            height: 112px;
+            border: 1px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
             cursor: pointer;
         }
 
-        #create-account-btn {
-            background-color: #EFEFEF;
-            color: #333;
-            border: 1px solid #ccc;
+        .color-picker-container {
+            margin-bottom: 10px;
         }
 
-        form {
+        input[type="text"]{
             width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            direction: ltr;
             text-align: right;
         }
 
-        input[type="text"],
-        input[type="email"],
-        input[type="password"] {
+        input[type="color"] {
+            width: 150%;
+            box-sizing: border-box;
+            border: 0px solid #ffffff;
+            border-radius: 0px;
+            margin-bottom: 10px;
+            direction: ltr;
+            text-align: right;
+        }
+
+        input[type="text"]::placeholder {
+            color: #918E8E;
+            text-align: right;
+        }
+
+        /* تنسيقات CSS من صفحة كلمة المرور */
+        label { 
+            display: block; 
+            margin-bottom: 5px; 
+            margin-right: 20px; 
+            font-weight: bold;
+        }
+
+        input[type="text"] {
             width: 90%;
             padding: 12px;
             margin: 10px 0;
@@ -106,202 +211,143 @@
             text-align: right;
         }
 
-        .forgot-password {
-            text-align: left;
-            margin-bottom: 10px;
-        }
 
-        button[type="submit"] {
-            width: 90%;
-            padding: 12px;
-            margin-right: 20px;
-            margin-bottom: 15px; 
-        }
-
-        p {
-            width: 90%;
-            margin-right: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            margin-right: 20px;
-            font-weight: bold;
-        }
-
-        .info-text {
-            color: #918E8E;
-            text-align: right;
-            margin-bottom: 10px;
-            margin-right: 20px;
-        }
-
-        input::-webkit-input-placeholder {
-            text-align: right;
-        }
-        input::-moz-placeholder {
-            text-align: right;
-        }
-        input:-ms-input-placeholder {
-            text-align: right;
-        }
-        input:-moz-placeholder {
-            text-align: right;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .easy-message {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .domain-input {
+        .next-button {
+            background-color: #924FF3;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
-            position: relative; 
-            margin-left: 30px;
-            
-        }
-
-        .domain-input input {
-            flex-grow: 1; 
-            margin-right: 5px;
-        }
-
-        .domain-input .domain-part {
-            font-size: 14px;
-            color: #545252;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #EFEFEF;
-            text-align: center; 
-        }
-        .domain-part {
-            height: 16px;
+            font-weight: bold; /* جعل "التالي" غامقة */
             margin-right: 20px;
-            
-        }
-        #domain {
-            width: 20%;
-            border-radius: 5px 0px 0px 5px; /* top-right, bottom-right, bottom-left, top-left */
-          }
-
-        .domain-input .domain-part {
-            margin-left: auto; /* لتحديد الهامش الأيسر تلقائياً */
         }
 
-        .form-group {
-            margin-bottom: 15px;
+        .next-button-icon {
+            width: 35px;
+            height: 35px;
+            margin-left: 10px;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            margin-right: 20px;
-            font-weight: bold;
+        .section-group > div {
+            margin-right: 65px; /* تقريب العناصر في section-group */
         }
 
-        .form-group input {
-            width: 90%;
-            padding: 12px;
-            margin-right: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
 
-        .form-group select {
-            width: 90%;
-            padding: 12px;
-            margin-right: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .agreement-text {
-            text-align: center;
-            font-size: 12px;
-            color: #555;
-            margin-top: 10px;
+        /* فقط عند تصغير الشاشة */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .right-container {
+                width: 100%;
+                float: none; 
+                text-align: right;
+                margin-bottom: 20px;
+            }
+            .left-container {
+                width: 100%;
+                float: none;
+            }
+            .section-group {
+                flex-direction: column; 
+            }
+            .section-group > div {
+                margin-right: 0;
+            }
+            .vertical-line {
+                display: none;
+            }
+            .middle-image {
+                display: none;
+            }
+            .note {
+                margin-top: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <button class="translate-btn">
-                <img src="united-kingdom.png" alt="English">
-            </button>
-            <img src="classa.png" alt="Logo" class="logo">
-        </header>
-
-        <section>
-            <div class="buttons-container">
-                <button id="login-btn" onclick="window.location.href='login.html'">تسجيل الدخول</button> 
-                <button id="create-account-btn">أنشئ حسابك مجانًا</button>
+        <div class="right-container">
+            <header>
+                <img src="classa.png" alt="Logo" class="logo"> 
+            </header>
+            <div class="step">
+                <img src="Wind-Speed.png" alt="Step 1 Icon" class="step-icon">
+                <div>
+                    <p class="step-title" style="font-weight: bold;">أساسيات أكاديميتك</p>
+                    <p class="step-description">بعض التفاصيل الصغيرة لصنع فرق كبير. خطوة أولى اتجاه منصتك.</p>
+                </div>
             </div>
-        </section>
-
-        <form>
-            <div class="form-group">
-                <label for="domain">اسم النطاق:</label>
-                <div class="domain-input">
-                    <span class="domain-part">classa.app.</span>
-                    <input type="text" id="domain" placeholder="اسم منصتك" required>
+            <div class="vertical-line"></div>
+            <div class="step"> 
+                <img src="Wind-Speed.png" alt="Step 2 Icon" class="step-icon">
+                <div>
+                    <p class="step-title" style="font-weight: bold;">عرفنا عنك</p>
+                    <p class="step-description">نريد أن نعرف من يعمل خلف الشاشة لمساعدته والمضي قدما عند الحاجة</p>
+                </div>
+            </div>
+            <img src="Remote-work.png" alt="Middle Image" class="middle-image">
+            <div class="note">
+                <img src="Light-On.png" alt="Note Icon" class="note-icon">
+                <p class="note-text">يمكنك دائما التعديل وإضافة تفاصيل أكثر في لوحة التحكم.</p>
+            </div>
+        </div>
+        <div class="left-container">
+            <div class="left-section"> 
+                <img src="step-1.png" alt="Icon" class="left-section-icon">
+                <div>
+                    <p class="left-section-title">نبدأ بالأساسيات</p>
+                    <p class="left-section-description">كيف تفضل أن يكون شكل منصتك أمام جمهورك.</p>
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="email">البريد الإلكتروني:</label>
-                <input type="email" id="email" placeholder=" ادخل البريد الإلكتروني" required>
+            <div class="section-group">
+                <div>
+                    <p class="section-group-label">لوجو المنصة</p>
+                    <div class="upload-image-container">
+                        <input type="file" id="upload-image" accept="image/*">
+                    </div>
+                </div>
+                <div style="margin-left: 200px;">
+                    <p class="section-group-label">اللون الأساسي</p>
+                    <div class="color-picker-container">
+                        <input type="color" id="primary-color" value="#ffffff">
+                    </div>
+                    <p class="section-group-label">اللون الفرعي 1</p>
+                    <div class="color-picker-container">
+                        <input type="color" id="secondary-color1" value="#ffffff">
+                    </div>
+                    <p class="section-group-label">اللون الفرعي 2</p>
+                    <div class="color-picker-container">
+                        <input type="color" id="secondary-color2" value="#ffffff">
+                    </div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="sector">الجهة:</label>
-                <select id="sector" required>
-                    <option value="trainer">مدرب</option>
-                    <option value="school">مدرسة</option>
-                    <option value="company">شركة</option>
-                </select>
+            <div class="left-section"> 
+                <label for="platform-name">اسم المنصة:</label> 
+                <input type="text" id="platform-name" placeholder="أدخل اسم لأكاديميتك باللغة العربية أو الإنجليزية"> 
             </div>
 
-
-            <div class="form-group">
-                <label for="password">كلمة المرور:</label>
-                <input type="password" id="password" placeholder=" ادخل كلمة المرور" required>
+            <div class="left-section">
+                <label for="platform-field">ماذا سيكون مجال منصتك؟</label>
+                <input type="text" id="platform-field" placeholder="اختر مجال منصتك ويمكنك أن تختار أكثر من مجال">
             </div>
 
-            <div class="form-group">
-                <label for="confirm-password">تأكيد كلمة المرور:</label>
-                <input type="password" id="confirm-password" placeholder=" تأكيد كلمة المرور" required>
-            </div>
-
-
-            <button type="submit">أنشئ حسابك مجانًا</button>
-
-            <p class="agreement-text">بالضغط على زر “أنشئ حسابك مجانًا” أنت توافق على الشروط والأحكام في Classa</p>
-        </form>
+            <button class="next-button" onclick="showNextStep()">
+                التالي
+            </button>
+        </div>
     </div>
 
     <script>
-        const createAccountBtn = document.getElementById('create-account-btn');
-        const loginBtn = document.getElementById('login-btn');
-
-        createAccountBtn.addEventListener('click', () => {
-            console.log("إنشاء حساب"); 
-        });
-
-        loginBtn.addEventListener('click', () => {
-            console.log("تسجيل الدخول"); 
-        });
+        function showNextStep() {
+            // ... (كود جافاسكريبت لعرض الخطوة الثانية) ...
+        }
     </script>
 </body>
-</html>
+</html> 
